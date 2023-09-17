@@ -1,0 +1,10 @@
+<div class="product">
+    <p class = "product__id">{{ product.id }}</p>
+    <p class = "product__name">{{ product.name }}</p>
+    <p class = "product__quantity">{{ product.quantity}}</p>
+    <p class = "product__price">{{ product.unit_cost }}₽</p>
+    <div class="product__icons">
+        <fa-icon [icon] = "faPen" class = "icon pen" (click) = "openEditForm()"></fa-icon>
+        <fa-icon (click) = "onDelete(product)" [icon] = "faTimes" class = "icon cross"></fa-icon>
+    </div>
+</div>

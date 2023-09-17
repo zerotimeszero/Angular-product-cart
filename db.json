@@ -1,0 +1,10 @@
+{
+  "product": [
+    {
+      "name": "Молоко",
+      "quantity": 12,
+      "unit_cost": 21,
+      "id": 1
+    }
+  ]
+}

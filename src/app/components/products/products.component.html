@@ -1,0 +1,17 @@
+<h1 class = "title">Продукты:</h1>
+<div class="product-list">
+   <div class="titles">
+      <p>Id</p>
+      <p>Название</p>
+      <p>Количество</p>
+      <p>Цена</p>
+   </div>
+   <app-product-item
+    *ngFor = "let product of products"
+     [product] = "product"
+     (onDeleteProduct) = "deleteProduct(product)">
+   </app-product-item>
+   <app-add-product (onAddProduct) = "addProduct($event)"></app-add-product>
+   <fa-icon [icon]="faPlus" class = "icon"></fa-icon>
+   
+</div>
