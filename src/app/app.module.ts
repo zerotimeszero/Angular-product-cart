@@ -7,15 +7,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
-import { EditProductComponent } from './components/edit-product/edit-product.component';
-
-
+import { DialogExampleComponent } from './components/show-product-dialog/dialog-example.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChangeProductDialogComponent } from './components/change-product-dialog/change-product-dialog.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     ProductsComponent,
     ProductItemComponent,
     AddProductComponent,
-    EditProductComponent,
+    DialogExampleComponent,
+    ChangeProductDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,8 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     MatButtonModule,
     CommonModule,
     MatToolbarModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

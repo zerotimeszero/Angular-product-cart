@@ -5,11 +5,11 @@
     </div>
     <div class="form-control">
         <label for="quantity">Количество</label>
-        <input type="number" min = "1" max = "999" name="product_quantity" [(ngModel)] = "product_quantity" id = "product_quantity" placeholder="70...">
+        <input type="number" name="product_quantity" [(ngModel)] = "product_quantity" id = "product_quantity" placeholder="70...">
     </div>
     <div class="form-control">
         <label for="unit_cost">Цена</label>
-        <input type="number" min = "1"  name="unit_cost" [(ngModel)] = "unit_cost" id = "unit_cost" placeholder="5000...">
+        <input type="number"  name="unit_cost" [(ngModel)] = "unit_cost" id = "unit_cost" placeholder="5000...">
     </div>
-    <input type="submit" value = "Добавить продукт" class = "btn btn--add">
+    <button mat-button mat-raised-button color = "primary" type="submit">Добавить продукт</button>
 </form>

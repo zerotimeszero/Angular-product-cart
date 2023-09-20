@@ -7,9 +7,10 @@
     display: grid;
     grid-template-columns: repeat(5,1fr);
     font-size: 22px;
+    color: #000;
 }
 .product-list{
-   background-color: rgb(216, 229, 243);
+   background-color: #fff;
    padding: 30px 30px 15px;
    display: flex;
    flex-direction: column;
@@ -18,7 +19,6 @@
    border-radius: 20px;
    margin: 20px 0 0;
 }
-
 .icon{
     cursor: pointer;
     padding-top: 10px;

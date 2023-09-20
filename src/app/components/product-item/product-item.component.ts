@@ -3,29 +3,39 @@ import { Product } from '../../Product';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
-import { EditProductComponent } from '../edit-product/edit-product.component';
+import { DialogExampleComponent } from '../show-product-dialog/dialog-example.component';
+import { ChangeProductDialogComponent } from '../change-product-dialog/change-product-dialog.component';
 
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.scss']
 })
-export class ProductItemComponent implements OnInit{
+export class ProductItemComponent{
   @Input() product: Product;
   @Output() onDeleteProduct: EventEmitter<Product> = new EventEmitter();
+  
   faTimes = faTimes;
   faPen = faPen;
 
   constructor(private _dialog: MatDialog){
-
   }
-  ngOnInit(): void {
 
+  openShowProductDialog(){
+    const dialogRef = this._dialog.open(DialogExampleComponent, {
+      data: this.product.id,
+    });
   }
+
+  openChangeProductDialog(){
+    const dialogRef = this._dialog.open(ChangeProductDialogComponent, {
+      data: this.product
+    });
+  }
+  
   onDelete(product){
     this.onDeleteProduct.emit(product);
   }
-  openEditForm(){
-    this._dialog.open(EditProductComponent)
-  }
+  
+  
 }

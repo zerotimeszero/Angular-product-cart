@@ -2,9 +2,57 @@
   "product": [
     {
       "name": "Молоко",
-      "quantity": 12,
-      "unit_cost": 21,
+      "quantity": 50,
+      "unit_cost": 55,
       "id": 1
+    },
+    {
+      "name": "Гречка",
+      "quantity": 20,
+      "unit_cost": 35,
+      "id": 2
+    },
+    {
+      "name": "Банан",
+      "quantity": 100,
+      "unit_cost": 15,
+      "id": 3
+    },
+    {
+      "name": "Coca-cola",
+      "quantity": 150,
+      "unit_cost": 60,
+      "id": 4
+    },
+    {
+      "name": "Огурец",
+      "quantity": 350,
+      "unit_cost": 15,
+      "id": 6
+    },
+    {
+      "name": "Яблоко",
+      "quantity": 100,
+      "unit_cost": 25,
+      "id": 7
+    },
+    {
+      "name": "Шпроты",
+      "quantity": 200,
+      "unit_cost": 150,
+      "id": 8
+    },
+    {
+      "name": "Камбала",
+      "quantity": 400,
+      "unit_cost": 120,
+      "id": 9
+    },
+    {
+      "name": "Пиво",
+      "quantity": 1000000,
+      "unit_cost": 120,
+      "id": 10
     }
   ]
 }

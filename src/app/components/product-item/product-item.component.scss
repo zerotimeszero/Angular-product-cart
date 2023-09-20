@@ -1,4 +1,5 @@
 .product{
+    color: black;
     cursor: pointer;
     padding: 15px;
     display: grid;
@@ -9,7 +10,8 @@
     background-color: rgb(230, 230, 230);
     transition: background-color .3s ease-out;
     &:hover{
-        background-color: #fff;
+        background-color: rgb(199,42,104);
+        color: #fff;
     }
     .icon{
         transition: color .2s ease; 

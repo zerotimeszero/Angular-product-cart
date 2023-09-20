@@ -1,0 +1,11 @@
+<h2 style = "font-weight: 700;" mat-dialog-title>Информация о продукте</h2>
+<mat-dialog-content class="mat-typography">
+    <div>Id: {{ product.id }}</div>
+    <div>Название: {{ product.name }}</div>
+    <div>Количество: {{ product.quantity }}</div>
+    <div>Цена: {{product.unit_cost }}₽</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+</mat-dialog-actions>
+

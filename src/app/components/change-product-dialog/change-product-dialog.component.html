@@ -1,0 +1,15 @@
+<h2 style = "font-weight: 700;" mat-dialog-title>Изменить продукт</h2>
+<div mat-dialog-content>
+    <form [formGroup] = "changeForm" class = "dialog-form" (ngSubmit) = "onFormSubmit()">
+        <label for="product_name">Название</label>
+        <input name = "product_name" required matInput  type="text" placeholder="Укажите новое название" formControlName = "name">
+        <label for="product_quantity">Количество</label>
+        <input required matInput min="0" type="number" placeholder = "Укажите новое кол-во" formControlName = "quantity">
+        <label for="unit_cost">Цена</label>
+        <input required matInput min="0" type="number" placeholder = "Укажите новою цену" formControlName = "unit_cost">
+    </form>
+</div>
+<div mat-dialog-actions class = "actions">
+    <button [disabled] = "changeForm.invalid" type = "submit" mat-button mat-raised-button [mat-dialog-close]="true" (click) = "onFormSubmit()" color = "primary">Сохранить изменения</button>
+    <button mat-button mat-raised-button [mat-dialog-close]="true">Отмена</button>
+</div>
