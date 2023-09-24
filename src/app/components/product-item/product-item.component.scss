@@ -13,25 +13,29 @@
         background-color: rgb(199,42,104);
         color: #fff;
     }
-    .icon{
-        transition: color .2s ease; 
-    }
-    .cross{
-        font-size: 25px;
-        &:hover{
-            color: red;
-        }
-    }
-    .pen{
-        font-size: 25px;
-        &:hover{
-            color: rgb(255, 204, 0);
-        }
-    }
+    
     &__icons{
         display: flex;
         gap: 10px;
         justify-self: end;
+        .icon{
+            transition: color .2s ease; 
+        }
+        .trash{
+            &:hover{
+                color: red;
+            }
+        }
+        .edit{
+            &:hover{
+                color: rgb(255, 204, 0);
+            }
+        }
+        .info{
+            &:hover{
+                color: #2596be;
+            }
+        }
     }
 }
 @media screen and (max-width: 768px) {
@@ -46,7 +50,6 @@
         .icon{
             font-size: 18px;
         }
-        
         p{
             &:first-of-type{
                 &::before{
@@ -74,12 +77,16 @@
     .icon{
         position: absolute;
     }
-    .cross{
+    .trash{
         top: 10px;
         right: 10px;
     }
-    .pen{
+    .edit{
         top: 10px;
-        right: 40px;
+        right: 30px;
+    }
+    .info{
+        bottom: 5px;
+        right: 10px;
     }
 }

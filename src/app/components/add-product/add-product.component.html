@@ -4,12 +4,19 @@
         <input type="text" name="product_name" [(ngModel)] = "product_name" id = "product_name" placeholder="Молоко...">
     </div>
     <div class="form-control">
-        <label for="quantity">Количество</label>
+        <label for="product_quantity">Количество</label>
         <input type="number" name="product_quantity" [(ngModel)] = "product_quantity" id = "product_quantity" placeholder="70...">
     </div>
     <div class="form-control">
         <label for="unit_cost">Цена</label>
         <input type="number"  name="unit_cost" [(ngModel)] = "unit_cost" id = "unit_cost" placeholder="5000...">
+    </div>
+    <div class="form-control">
+        <label for="unit_measurment">Единица измерения</label>
+        <select name="unit_measurment" id="unit_measurment">
+            <option selected disabled value="default">Выберите ед. измерения</option>
+            <option *ngFor = "let UM of unitMeasurments" value="{{UM.unit_measurment}}">{{ UM.unit_measurment }}</option>
+        </select>
     </div>
     <button mat-button mat-raised-button color = "primary" type="submit">Добавить продукт</button>
 </form>

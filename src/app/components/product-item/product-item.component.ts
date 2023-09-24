@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../Product';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { faInfo } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogExampleComponent } from '../show-product-dialog/dialog-example.component';
 import { ChangeProductDialogComponent } from '../change-product-dialog/change-product-dialog.component';
@@ -14,9 +15,10 @@ import { ChangeProductDialogComponent } from '../change-product-dialog/change-pr
 export class ProductItemComponent{
   @Input() product: Product;
   @Output() onDeleteProduct: EventEmitter<Product> = new EventEmitter();
-  
-  faTimes = faTimes;
-  faPen = faPen;
+
+  faInfo = faInfo;
+  faEdit = faEdit;
+  faTrash = faTrash;
 
   constructor(private _dialog: MatDialog){
   }

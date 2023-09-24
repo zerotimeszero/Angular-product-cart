@@ -2,11 +2,11 @@
 <div mat-dialog-content>
     <form [formGroup] = "changeForm" class = "dialog-form" (ngSubmit) = "onFormSubmit()">
         <label for="product_name">Название</label>
-        <input name = "product_name" required matInput  type="text" placeholder="Укажите новое название" formControlName = "name">
+        <input id = "product_name" name = "product_name" required matInput  type="text" placeholder="Укажите новое название" formControlName = "name">
         <label for="product_quantity">Количество</label>
-        <input required matInput min="0" type="number" placeholder = "Укажите новое кол-во" formControlName = "quantity">
+        <input id = "product_quantity" required matInput min="0" type="number" placeholder = "Укажите новое кол-во" formControlName = "quantity">
         <label for="unit_cost">Цена</label>
-        <input required matInput min="0" type="number" placeholder = "Укажите новою цену" formControlName = "unit_cost">
+        <input id = "unit_cost" required matInput min="0" type="number" placeholder = "Укажите новою цену" formControlName = "unit_cost">
     </form>
 </div>
 <div mat-dialog-actions class = "actions">

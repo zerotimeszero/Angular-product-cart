@@ -3,6 +3,7 @@ form{
     display: flex;
     column-gap: 20px;
     flex-wrap: wrap;
+
     .form-control{
         gap: 10px;
         overflow: hidden;
@@ -28,9 +29,59 @@ form{
                 -webkit-appearance: none;
             }
         }
+        select{
+            
+            font-size: 22px;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 5px;
+            transition: color .3s ease;
+            //TODO - change the color when an option is selected
+            &:not(:visited){
+                color: rgb(173,173,173);
+            }
+            
+            option{
+                color: #000;
+                &:first-of-type{
+                    color: rgb(173,173,173) !important;
+                }
+                &:checked{
+                    color: rgb(194,24,91);
+                }
+                
+                
+            }
+            
+        }
     }
     button{
-        margin-top: 20px;
+        margin-top: 30px;
         align-self: center;
     }
+}
+@media screen and (max-width: 701px) {
+    form{  
+        flex-direction: column;
+        justify-content: center;
+        button{
+            margin-top: 15px;
+        }
+        
+    }
+    .form-control{
+        max-width: 100%;
+        label{
+            font-size: 18px !important;
+        }
+        input{
+            &::placeholder{
+                font-size: 16px;
+            }
+        }
+        select{
+            font-size: 14px !important;
+        }
+    }
+    
 }

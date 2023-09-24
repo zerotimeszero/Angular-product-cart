@@ -1,10 +1,11 @@
 <div mat-raised-button class="product">
-    <p class = "product__id" (click)="openShowProductDialog()">{{ product.id }}</p>
-    <p class = "product__name" (click)="openShowProductDialog()">{{ product.name }}</p>
-    <p class = "product__quantity" (click)="openShowProductDialog()">{{ product.quantity}}</p>
-    <p class = "product__price" (click)="openShowProductDialog()">{{ product.unit_cost }}₽</p>
+    <p class = "product__id">{{ product.id }}</p>
+    <p class = "product__name">{{ product.name }}</p>
+    <p class = "product__quantity">{{ product.quantity}}</p>
+    <p class = "product__price">{{ product.unit_cost }}₽</p>
     <div class="product__icons">
-        <fa-icon [icon] = "faPen" class = "icon pen" (click) = openChangeProductDialog()></fa-icon>
-        <fa-icon (click) = "onDelete(product)" [icon] = "faTimes" class = "icon cross"></fa-icon>
+        <fa-icon [icon] = "faInfo" (click)="openShowProductDialog()" class = "icon info"></fa-icon>
+        <fa-icon [icon] = "faEdit" class = "icon edit" (click) = openChangeProductDialog()></fa-icon>
+        <fa-icon (click) = "onDelete(product)" [icon] = "faTrash" class = "icon trash"></fa-icon>
     </div>
 </div>
