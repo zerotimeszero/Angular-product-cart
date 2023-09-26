@@ -3,12 +3,26 @@ import {Product} from '../../Product'
 import { ProductService } from 'src/app/services/product.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { UnitMeasurement } from 'src/app/UnitMeasurment';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
+  animations: [
+    trigger('addProductFadeIn',[
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate(300, style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        animate(300, style({ opacity: 0 }))
+      ])
+      
+    ])
+    
+  ]
 })
 
 export class ProductsComponent implements OnInit{

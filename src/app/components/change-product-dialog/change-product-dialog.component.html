@@ -3,10 +3,15 @@
     <form [formGroup] = "changeForm" class = "dialog-form" (ngSubmit) = "onFormSubmit()">
         <label for="product_name">Название</label>
         <input id = "product_name" name = "product_name" required matInput  type="text" placeholder="Укажите новое название" formControlName = "name">
+        <div *ngIf="name.touched && name.errors?.['required']" class = "validation">Это поле должно быть заполнено!</div>
         <label for="product_quantity">Количество</label>
         <input id = "product_quantity" required matInput min="0" type="number" placeholder = "Укажите новое кол-во" formControlName = "quantity">
+        <div *ngIf="quantity.touched && quantity.errors?.['required']" class = "validation">Это поле должно быть заполнено!</div>
+        <div *ngIf = "quantity.touched && quantity.errors?.['min']" class = "validation">Количество не может быть отрицательным!</div>
         <label for="unit_cost">Цена</label>
         <input id = "unit_cost" required matInput min="0" type="number" placeholder = "Укажите новою цену" formControlName = "unit_cost">
+        <div *ngIf="unit_cost.touched && unit_cost.errors?.['required']" class = "validation">Это поле должно быть заполнено!</div>
+        <div *ngIf = "unit_cost.touched && unit_cost.errors?.['min']" class = "validation">Цена не может быть отрицательной!</div>
     </form>
 </div>
 <div mat-dialog-actions class = "actions">

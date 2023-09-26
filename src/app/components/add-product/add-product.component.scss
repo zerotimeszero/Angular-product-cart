@@ -8,7 +8,6 @@ form{
     flex-wrap: wrap;
     padding-bottom: 15px;
     .form-control{
-        
         gap: 10px;
         overflow: hidden;
         display: flex;
@@ -18,28 +17,7 @@ form{
             font-size: 22px;
             color: #000;
         }
-        input{
-            margin-bottom: 5px;
-            font-size: 22px;
-            border: 1px solid black;
-            border-radius: 10px;
-            padding: 5px;
-            
-            
-            &::placeholder{
-                color: rgb(115, 115, 115);
-            }
-            
-            &::-webkit-inner-spin-button{
-                -webkit-appearance: none;
-            }
-            &.ng-invalid.ng-touched{
-                border: 2px solid red;
-                }
-            }
-        }
         select{
-            
             font-size: 22px;
             border: 1px solid black;
             border-radius: 10px;
@@ -66,21 +44,15 @@ form{
             }
        
         }
+        
+    }
     button{
         margin-top: 10px;
         grid-column-start: 2;
         grid-column-end: 4;
     }
 }
-    
-        
-    
-.validation{
-    font-size: 12px;
-    align-self: center;
-    color: red;
-    margin-top: -10px;
-}
+
 @media screen and (max-width: 1030px) {
     form{
         display: flex;  

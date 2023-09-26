@@ -105,5 +105,5 @@
          </div>
        </div>
    </div>
-   <app-add-product *ngIf = "this.isAddMenuOpened" (onAddProduct) = "addProduct($event)"></app-add-product>
+   <app-add-product *ngIf = "this.isAddMenuOpened" (onAddProduct) = "addProduct($event)" @addProductFadeIn></app-add-product>
 </div>

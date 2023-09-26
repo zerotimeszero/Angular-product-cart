@@ -9,11 +9,7 @@ import { style, trigger } from '@angular/animations';
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss'],
-  animations: [
-    trigger('fadeIn',[
-      
-    ])
-  ]
+  
   
 })
 
@@ -58,7 +54,7 @@ export class AddProductComponent implements OnInit {
       name: this.addForm.value.name,
       quantity: this.addForm.value.quantity,
       unit_cost: this.addForm.value.unit_cost,
-      unit_measurment_id: this.addForm.value.unit_measurement
+      unit_measurement: this.addForm.value.unit_measurement
     };
     console.log(newProduct);
     this.onAddProduct.emit(newProduct);

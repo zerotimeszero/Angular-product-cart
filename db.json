@@ -13,5 +13,16 @@
       "value": "штуки"
     }
   ],
-  "product": []
+  "product": [
+    {
+      "name": "Молоко",
+      "quantity": 12,
+      "unit_cost": 15,
+      "unit_measurement": {
+        "id": 2,
+        "value": "литры"
+      },
+      "id": 1
+    }
+  ]
 }
