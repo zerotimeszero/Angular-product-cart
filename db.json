@@ -2,15 +2,15 @@
   "unit_measurements": [
     {
       "id": 1,
-      "unit_measurment": "кг"
+      "value": "килограммы"
     },
     {
       "id": 2,
-      "unit_measurment": "л"
+      "value": "литры"
     },
     {
       "id": 3,
-      "unit_measurment": "шт"
+      "value": "штуки"
     }
   ],
   "product": []

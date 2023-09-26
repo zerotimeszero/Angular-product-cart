@@ -1,22 +1,29 @@
-<form (ngSubmit) = "onSubmit()">
+<form [formGroup] = "addForm" (ngSubmit) = "onSubmit()">
     <div class="form-control">
         <label for="product_name">Название</label>
-        <input type="text" name="product_name" [(ngModel)] = "product_name" id = "product_name" placeholder="Молоко...">
+        <input  required formControlName = "name"  type="text" name="product_name" id = "product_name" placeholder="Молоко...">
+        <div *ngIf="name.touched && name.errors?.['required']" class = "validation">Это поле должно быть заполнено!</div>
     </div>
+    
     <div class="form-control">
         <label for="product_quantity">Количество</label>
-        <input type="number" name="product_quantity" [(ngModel)] = "product_quantity" id = "product_quantity" placeholder="70...">
+        <input required formControlName = "quantity" min = "0" type="number" name="product_quantity" id = "product_quantity" placeholder="70...">
+        <div *ngIf="quantity.touched && quantity.errors?.['required']" class = "validation">Это поле должно быть заполнено!</div>
+        <div *ngIf = "quantity.touched && quantity.errors?.['min']" class = "validation">Количество не может быть отрицательным!</div>
     </div>
     <div class="form-control">
         <label for="unit_cost">Цена</label>
-        <input type="number"  name="unit_cost" [(ngModel)] = "unit_cost" id = "unit_cost" placeholder="5000...">
+        <input  required formControlName = "unit_cost" min = "0"  type="number"  name="unit_cost" id = "unit_cost" placeholder="5000...">
+        <div *ngIf="unit_cost.touched && unit_cost.errors?.['required']" class = "validation">Это поле должно быть заполнено!</div>
+        <div *ngIf = "unit_cost.touched && unit_cost.errors?.['min']" class = "validation">Цена не может быть отрицательной!</div>
     </div>
     <div class="form-control">
         <label for="unit_measurment">Единица измерения</label>
-        <select name="unit_measurment" id="unit_measurment">
-            <option selected disabled value="default">Выберите ед. измерения</option>
-            <option *ngFor = "let UM of unitMeasurments" value="{{UM.unit_measurment}}">{{ UM.unit_measurment }}</option>
+        <select  formControlName = "unit_measurement"  name="unit_measurment" id="unit_measurment">
+            <option>Выберите ед. измерения</option>
+            <option></option>
         </select>
     </div>
     <button mat-button mat-raised-button color = "primary" type="submit">Добавить продукт</button>
 </form>
+

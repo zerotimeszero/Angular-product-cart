@@ -1,9 +1,9 @@
 .product{
     color: black;
-    cursor: pointer;
+    
     padding: 15px;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(6,1fr);
     font-size: 22px;
     border: 1px solid black;
     border-radius: 10px;
@@ -15,6 +15,7 @@
     }
     
     &__icons{
+        cursor: pointer;
         display: flex;
         gap: 10px;
         justify-self: end;
@@ -38,7 +39,7 @@
         }
     }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .product{
         display: flex;
         flex-direction: column;
@@ -66,9 +67,14 @@
                     content: "Количество - "
                 }
             }
-            &:last-of-type{
+            &:nth-of-type(4){
                 &::before{
                     content: "Цена - "
+                }
+            }
+            &:nth-of-type(5){
+                &::before{
+                    content: "Ед. Измерения - "
                 }
             }
         }

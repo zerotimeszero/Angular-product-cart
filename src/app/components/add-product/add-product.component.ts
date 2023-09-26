@@ -1,49 +1,71 @@
 import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/Product';
-import { validation } from 'src/app/validation';
-import { UnitMeasurment } from 'src/app/UnitMeasurment';
-import { UnitMeasurmentService } from 'src/app/services/unit-measurment.service';
+import { UnitMeasurement } from 'src/app/UnitMeasurment';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { style, trigger } from '@angular/animations';
+
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.scss']
+  styleUrls: ['./add-product.component.scss'],
+  animations: [
+    trigger('fadeIn',[
+      
+    ])
+  ]
+  
 })
 
 export class AddProductComponent implements OnInit {
 
-  @Input() unitMeasurments = [];
-  constructor (private unitMeasurementService: UnitMeasurmentService ) {
+
+  addForm = new FormGroup({
+    name: new FormControl('',[
+      Validators.required
+    ]),
+    quantity: new FormControl(undefined,[
+      Validators.required,
+      Validators.min(0)
+    ]),
+    unit_cost: new FormControl(undefined,[
+      Validators.required,
+      Validators.min(0)
+    ]),
+    unit_measurement: new FormControl() // TODO - set validation
+  })
+  
+
+  @Input() unitMeasurements = [];
+  constructor () {
 
   }
 
   @Output() onAddProduct: EventEmitter<Product> = new EventEmitter();
-  private validation: validation = new validation();
-  product_name: string;
-  product_quantity: number;
-  unit_cost: number;
-  unit_measurment_id: number;
 
   ngOnInit(): void {
+   
   }
-
+  
   onSubmit(){
-    if (this.validation.isInputEmpty(this.product_name) ||
-        this.validation.isInputEmpty(this.product_quantity) ||
-        this.validation.isInputEmpty(this.unit_cost) ||
-        this.product_quantity < 0 || this.unit_cost < 0)
+    
+    if (this.addForm.invalid)
         {
           alert('Пожалуйста, проверьте введенные данные')
           return;
-        } //TODO - change the validation
+        }
     const newProduct = {
-      name: this.product_name,
-      quantity: this.product_quantity,
-      unit_cost: this.unit_cost
+      name: this.addForm.value.name,
+      quantity: this.addForm.value.quantity,
+      unit_cost: this.addForm.value.unit_cost,
+      unit_measurment_id: this.addForm.value.unit_measurement
     };
+    console.log(newProduct);
     this.onAddProduct.emit(newProduct);
+    this.addForm.reset();
     
-    this.product_name = undefined;
-    this.product_quantity = undefined;
-    this.unit_cost = undefined;
   }
+  get name() { return this.addForm.get('name'); }
+  get quantity() {return this.addForm.get('quantity');}
+  get unit_cost() {return this.addForm.get('unit_cost');}
 }

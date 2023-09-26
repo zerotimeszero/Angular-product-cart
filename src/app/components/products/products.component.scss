@@ -5,9 +5,12 @@
 .titles{
     padding: 0 5px;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(6,1fr);
     font-size: 22px;
     color: #000;
+    &__um{
+        transform: translateX(-5px) ;
+    }
 }
 .product-list{
    background-color: #fff;
@@ -26,18 +29,78 @@
     font-size: 18px;
    }
 }
-.icon{
+
+.open-add-menu{
     cursor: pointer;
-    padding-top: 10px;
     align-self: center;
-    font-size: 30px;
-    transition: all .5s ease;
+    transition: all .3s ease-out;
     &:hover{
-        transform: scale(1.25);
-        color: green;
+        transform: scale(1.2);
     }
+    .closed {
+        .vertical {
+          transition: all 0.5s ease-in-out;
+          transform: rotate(-90deg);
+        }
+        .horizontal {
+          transition: all 0.5s ease-in-out;
+          transform: rotate(-90deg);
+          opacity: 1;
+        }
+      }
+      
+      .opened {
+        opacity: 1;
+        .vertical {
+          transition: all 0.5s ease-in-out;
+          transform: rotate(90deg);
+        }
+        .horizontal {
+          transition: all 0.5s ease-in-out;
+          transform: rotate(90deg);
+          opacity: 0;
+        }
+      }
+      
+      .circle-plus {
+          height: 2em;
+          width: 2em;
+          font-size: 1em;
+          
+      }
+      
+      .circle-plus .circle {
+          position: relative;
+          width: 2.55em;
+          height: 2.5em;
+          
+      }
+      .circle-plus .circle .horizontal {
+          position: absolute;
+          background-color: rgb(194,24,91);
+          width: 30px;
+          height: 5px;
+          left: 50%;
+          margin-left: -15px;
+          top: 50%;
+          margin-top: -2.5px;
+      }
+      .circle-plus .circle .vertical {
+          position: absolute;
+          background-color: rgb(194,24,91);
+          width: 5px;
+          height: 30px;
+          left: 50%;
+          margin-left: -2.5px;
+          top: 50%;
+          margin-top: -15px;
+      }
+      
 }
-@media screen and (max-width: 768px) {
+
+
+
+@media screen and (max-width: 1024px) {
     .titles{
         display: none;
     }

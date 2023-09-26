@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Product} from '../../Product'
 import { ProductService } from 'src/app/services/product.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { UnitMeasurmentService } from 'src/app/services/unit-measurment.service';
-import { UnitMeasurment } from 'src/app/UnitMeasurment';
+import { UnitMeasurement } from 'src/app/UnitMeasurment';
 
 
 @Component({
@@ -14,14 +13,17 @@ import { UnitMeasurment } from 'src/app/UnitMeasurment';
 
 export class ProductsComponent implements OnInit{
   products: Product[] = [];
-  unitMeasurments: UnitMeasurment[] = [];
+  isAddMenuOpened = false;
+  
+  
+
   faPlus = faPlus;
-  constructor(private productService: ProductService, private unitMeasurementService: UnitMeasurmentService) {
+  constructor(private productService: ProductService) {
 
   }
   ngOnInit(): void {
     this.productService.getProducts().subscribe((products) => this.products = products);
-    this.unitMeasurementService.getUnitMeasurements().subscribe((unitMeasurments) => this.unitMeasurments = unitMeasurments);
+  
   }
   
   deleteProduct(product: Product){
@@ -33,6 +35,22 @@ export class ProductsComponent implements OnInit{
   }
   addProduct(product: Product){
     this.productService.addProduct(product).subscribe((product) => this.products.push(product));
+  }
+
+  openAddMenu(){
+    const circlePlus = document.getElementById('circle-plus')
+    if (circlePlus.classList.contains('closed')){
+      circlePlus.classList.remove('closed')
+      circlePlus.classList.add('opened')
+    } else if (circlePlus.classList.contains('opened')){
+      circlePlus.classList.remove('opened')
+      circlePlus.classList.add('closed')
+    } else {
+      circlePlus.classList.add('opened')
+    }
+    
+    this.isAddMenuOpened = !this.isAddMenuOpened;
+
   }
 }
 

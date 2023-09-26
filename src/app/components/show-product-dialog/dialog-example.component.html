@@ -4,6 +4,7 @@
     <div>Название: {{ product.name }}</div>
     <div>Количество: {{ product.quantity }}</div>
     <div>Цена: {{product.unit_cost }}₽</div>
+    <div>Единица измерения: {{product.unit_measurement.value}}</div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial>OK</button>

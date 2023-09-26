@@ -1,4 +1,4 @@
-export interface UnitMeasurment{
+export interface UnitMeasurement{
     id: number;
-    unit_measurment: string;
+    value: string;
 }

@@ -1,10 +1,14 @@
 form{
-    vertical-align: middle;
-    display: flex;
+    justify-content: center;
+    border-top: 2px solid #000;
+    padding: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
     column-gap: 20px;
     flex-wrap: wrap;
-
+    padding-bottom: 15px;
     .form-control{
+        
         gap: 10px;
         overflow: hidden;
         display: flex;
@@ -21,12 +25,17 @@ form{
             border-radius: 10px;
             padding: 5px;
             
+            
             &::placeholder{
                 color: rgb(115, 115, 115);
             }
             
             &::-webkit-inner-spin-button{
                 -webkit-appearance: none;
+            }
+            &.ng-invalid.ng-touched{
+                border: 2px solid red;
+                }
             }
         }
         select{
@@ -52,18 +61,31 @@ form{
                 
                 
             }
-            
+            &.ng-invalid.ng-touched{
+                border: 2px solid red;
+            }
+       
         }
-    }
     button{
-        margin-top: 30px;
-        align-self: center;
+        margin-top: 10px;
+        grid-column-start: 2;
+        grid-column-end: 4;
     }
 }
-@media screen and (max-width: 701px) {
-    form{  
+    
+        
+    
+.validation{
+    font-size: 12px;
+    align-self: center;
+    color: red;
+    margin-top: -10px;
+}
+@media screen and (max-width: 1030px) {
+    form{
+        display: flex;  
         flex-direction: column;
-        justify-content: center;
+        justify-content: center; // TODO - make it grid
         button{
             margin-top: 15px;
         }

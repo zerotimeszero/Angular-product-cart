@@ -1,10 +1,11 @@
 <h1 class = "title">Продукты:</h1>
 <div class="product-list" id = "product-list">
    <div *ngIf = "this.products.length" class="titles">
-      <p>Id</p>
-      <p>Название</p>
-      <p>Количество</p>
-      <p>Цена</p>
+      <p class = titles__id>Id</p>
+      <p class = titles__name>Название</p>
+      <p class = titles__quantity>Количество</p>
+      <p class = titles__price>Цена</p>
+      <p class = titles__um>Ед. Измерения</p>
    </div>
    <div *ngIf = "!this.products.length" class = "empty">
       <svg xmlns="http://www.w3.org/2000/svg" width="250" height="161" viewBox="0 0 250 161" fill="none">
@@ -90,5 +91,19 @@
      [product] = "product"
      (onDeleteProduct) = "deleteProduct(product)">
    </app-product-item>
-   <app-add-product (onAddProduct) = "addProduct($event)" [unitMeasurments] = "unitMeasurments"></app-add-product>
+   <div class="open-add-menu" (click) = "openAddMenu()">
+      <div id ="circle-plus" class="circle-plus">
+         <div class="circle">
+           <div class="horizontal"></div>
+           <div class="vertical"></div>
+         </div>
+       </div>
+        <div id="circle-plus-two" class="circle-plus-two">
+         <div class="circle">
+           <div class="horizontal"></div>
+           <div class="vertical"></div>
+         </div>
+       </div>
+   </div>
+   <app-add-product *ngIf = "this.isAddMenuOpened" (onAddProduct) = "addProduct($event)"></app-add-product>
 </div>

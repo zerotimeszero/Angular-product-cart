@@ -12,17 +12,23 @@ import { ChangeProductDialogComponent } from '../change-product-dialog/change-pr
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.scss']
 })
-export class ProductItemComponent{
+export class ProductItemComponent implements OnInit{
   @Input() product: Product;
+  @Input() unitMeasurements = [];
   @Output() onDeleteProduct: EventEmitter<Product> = new EventEmitter();
 
   faInfo = faInfo;
   faEdit = faEdit;
   faTrash = faTrash;
 
+  
+
   constructor(private _dialog: MatDialog){
   }
-
+  ngOnInit(): void {
+    
+  }
+  
   openShowProductDialog(){
     const dialogRef = this._dialog.open(DialogExampleComponent, {
       data: this.product.id,
@@ -38,6 +44,7 @@ export class ProductItemComponent{
   onDelete(product){
     this.onDeleteProduct.emit(product);
   }
+  
   
   
 }
