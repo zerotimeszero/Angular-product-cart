@@ -89,7 +89,8 @@
    <app-product-item
     *ngFor = "let product of products"
      [product] = "product"
-     (onDeleteProduct) = "deleteProduct(product)">
+     (onDeleteProduct) = "deleteProduct(product)"
+     [unitMeasurements] = "unitMeasurements">
    </app-product-item>
    <div class="open-add-menu" (click) = "openAddMenu()">
       <div id ="circle-plus" class="circle-plus">
@@ -105,5 +106,5 @@
          </div>
        </div>
    </div>
-   <app-add-product *ngIf = "this.isAddMenuOpened" (onAddProduct) = "addProduct($event)" @addProductFadeIn></app-add-product>
+   <app-add-product [unitMeasurements] = "unitMeasurements" *ngIf = "this.isAddMenuOpened" (onAddProduct) = "addProduct($event)" @addProductFadeIn></app-add-product>
 </div>

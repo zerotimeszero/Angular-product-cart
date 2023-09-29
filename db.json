@@ -1,5 +1,5 @@
 {
-  "unit_measurements": [
+  "measure": [
     {
       "id": 1,
       "value": "килограммы"
@@ -16,8 +16,8 @@
   "product": [
     {
       "name": "Молоко",
-      "quantity": 12,
-      "unit_cost": 15,
+      "quantity": 50,
+      "unit_cost": 100,
       "unit_measurement": {
         "id": 2,
         "value": "литры"

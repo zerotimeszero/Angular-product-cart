@@ -4,6 +4,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { UnitMeasurement } from 'src/app/UnitMeasurment';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { UnitMeasureService } from 'src/app/services/unit-measure-service.service';
 
 
 @Component({
@@ -27,16 +28,18 @@ import { animate, style, transition, trigger } from '@angular/animations';
 
 export class ProductsComponent implements OnInit{
   products: Product[] = [];
+  unitMeasurements: UnitMeasurement[] = [];
   isAddMenuOpened = false;
   
   
 
   faPlus = faPlus;
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private unitMeasurementService: UnitMeasureService) {
 
   }
   ngOnInit(): void {
     this.productService.getProducts().subscribe((products) => this.products = products);
+    this.unitMeasurementService.getUnitMeasurements().subscribe((unitMeasurements) => this.unitMeasurements = unitMeasurements)
   
   }
   

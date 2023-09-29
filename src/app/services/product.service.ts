@@ -13,6 +13,7 @@ const httpOptions = {
 })
 
 export class ProductService {
+  // private apiUrl = "http://localhost:8080/product";
   private apiUrl = "http://localhost:5000/product";
   constructor(private http: HttpClient) { }
 

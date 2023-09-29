@@ -6,6 +6,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogExampleComponent } from '../show-product-dialog/dialog-example.component';
 import { ChangeProductDialogComponent } from '../change-product-dialog/change-product-dialog.component';
+import { DialogConfig } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-product-item',
@@ -31,13 +32,17 @@ export class ProductItemComponent implements OnInit{
   
   openShowProductDialog(){
     const dialogRef = this._dialog.open(DialogExampleComponent, {
-      data: this.product.id,
+      data: this.product.id
+      
     });
   }
-
   openChangeProductDialog(){
+
     const dialogRef = this._dialog.open(ChangeProductDialogComponent, {
-      data: this.product
+      data: {
+        product: this.product,
+        unitMeasurements: this.unitMeasurements
+      }
     });
   }
   
