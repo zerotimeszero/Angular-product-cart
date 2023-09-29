@@ -1,9 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "nullstyle.scss";
-//TODO - colors
+$red-main: rgb(194,24,91);
 .container{
-    display: flex;
-    flex-direction: column;
+    padding: 10px 30px;
 }
 
 .validation{
@@ -17,7 +16,7 @@
 body{
     color: rgb(173,173,173);
     background-color: rgb(66,66,66);
-    padding: 30px;
+    
     
 }
 

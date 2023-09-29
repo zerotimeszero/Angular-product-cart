@@ -1,0 +1,25 @@
+.header{
+    padding: 20px 0;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+    .nav-list{
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        &__item{
+            transition: transform .3s ease;
+            &:hover{
+                transform: translateY(5px);
+            }
+        }
+        &__link{
+            font-size: 16px;
+            text-decoration: none;
+            color: #fff;
+            transition: color .3s ease-out;
+            &:hover{
+                color: rgb(194,24,91);
+            }
+        }
+    }
+}

@@ -16,7 +16,9 @@ body, html {
 }
 
 nav,footer,header,aside{display: block;}
-
+ul,ol{
+	list-style: none;
+}
 p{
 	margin: 0 !important;
 }
