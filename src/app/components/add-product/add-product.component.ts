@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/Product';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UnitMeasureService } from 'src/app/services/unit-measure-service.service';
 
 
 
@@ -35,8 +36,12 @@ export class AddProductComponent implements OnInit {
   @Output() onAddProduct: EventEmitter<Product> = new EventEmitter();
 
   ngOnInit(): void {
-   
-  }
+    if (this.unitMeasurements.length > 0){
+      this.addForm.patchValue({
+        unit_measurement: this.unitMeasurements[0]
+      })
+    }
+   }
   
   onSubmit(){
     if (this.addForm.invalid)
@@ -44,13 +49,18 @@ export class AddProductComponent implements OnInit {
           alert('Пожалуйста, проверьте введенные данные')
           return;
         }
-    const newProduct = {
-      name: this.addForm.value.name,
-      quantity: this.addForm.value.quantity,
-      unit_cost: this.addForm.value.unit_cost,
-      unit_measurement: this.addForm.value.unit_measurement
+    if (typeof this.addForm.value.unit_measurement != 'string'){
+      const newProduct = {
+        name: this.addForm.value.name,
+        quantity: this.addForm.value.quantity,
+        unit_cost: this.addForm.value.unit_cost,
+        unit_measurement: this.addForm.value.unit_measurement
+        
+      }
+      this.onAddProduct.emit(newProduct);
+    
     };
-    this.onAddProduct.emit(newProduct);
+    
     this.addForm.reset();
     
   }

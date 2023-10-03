@@ -1,0 +1,126 @@
+.um-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 20px;
+    &__item{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: rgb(230, 230, 230);
+        padding: 35px;
+        border: 1px solid black;
+        border-radius: 20px;
+        .icon{
+            position: absolute;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all .3s ease;
+        }
+        .trash{
+            color: #000;
+            top: 80%;
+            &:hover{
+                color: red;
+            }
+        
+            
+        }
+    }
+    &__field{
+        cursor: pointer;
+        padding-bottom: 50px;
+        font-size: 20px;
+        color: #000;
+    }
+    &__form{
+        margin-top: 5px;
+        text-align: center;
+    }
+    &__input{
+        width: 100%;
+        margin-top: 10px;
+    }
+    &__btn{
+        margin-top: 15px;
+        &--cancel{
+            margin-top: 5px;
+        }
+    }
+    &__changeName{
+        display: none;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 33px;
+        .check{
+            top: 11px;
+            right: 20px;
+            &:hover{
+                transform: scale(1.2);
+                color: rgb(194,24,91);
+            }
+        }
+        input{
+            width: 95%;
+            &::placeholder{
+                text-align: center;
+            }
+        }
+        &.active{
+            display: block;
+        }
+        
+        
+    }
+
+    .empty{
+        gap: unset;
+        font-size: unset;
+        svg{
+            margin-bottom: 15px;
+        }
+        p{
+            position: relative;
+        }
+        span{
+            color: rgb(194,24,91);
+            top: 15px;
+            left: 50%;
+            position: absolute;
+            font-size: 25px;
+            transform: rotate(90deg)
+        }
+    }
+    
+
+}
+.mat-mdc-raised-button[disabled][disabled] {
+     --mdc-protected-button-disabled-container-color: unset; 
+    --mdc-protected-button-disabled-label-text-color: unset; 
+    --mdc-protected-button-container-color: unset; 
+    --mdc-protected-button-label-text-color: unset
+     --mdc-protected-button-container-elevation: unset;
+}
+.validation{
+    margin-top: 0px;
+}
+
+@media screen and (max-width: 430px) {
+    .um-list__changeName{
+        input{
+            &::placeholder{
+                font-size: 12px;
+            }
+        }
+    }
+}

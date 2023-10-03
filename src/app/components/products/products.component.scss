@@ -13,6 +13,7 @@
     }
 }
 .product-list{
+   position: relative;
    background-color: #fff;
    padding: 30px 30px 15px;
    display: flex;
@@ -28,7 +29,10 @@
     gap: 15px;
     font-size: 18px;
    }
+   
 }
+
+
 
 .open-add-menu{
     cursor: pointer;

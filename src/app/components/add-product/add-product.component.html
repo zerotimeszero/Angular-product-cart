@@ -20,10 +20,9 @@
     <div class="form-control">
         <label for="unit_measurment">Единица измерения</label>
         <select  formControlName = "unit_measurement"  name="unit_measurment" id="unit_measurment">
-            <option selected disabled value="">Выберите ед. измерения</option>
             <option *ngFor="let um of unitMeasurements" [ngValue] = "um" value="">{{ um.value }}</option>
         </select>
-        <div *ngIf="unit_measurement.touched && unit_measurement.errors?.['required']" class = "validation">Это поле должно быть заполнено!</div>
+        <!-- <div *ngIf="unit_measurement.touched && unit_measurement.errors?.['required']" class = "validation">Это поле должно быть заполнено!</div> -->
     </div>
     <button mat-button mat-raised-button color = "primary" type="submit">Добавить продукт</button>
 </form>

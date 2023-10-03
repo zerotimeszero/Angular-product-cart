@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChangeProductDialogComponent } from './components/change-product-dialog/change-product-dialog.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UnitMeasurementsComponent } from './components/unit-measurements/unit-measurements.component';
+import { UmListComponent } from './components/um-list/um-list.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { UnitMeasurementsComponent } from './components/unit-measurements/unit-m
     ChangeProductDialogComponent,
     HeaderComponent,
     UnitMeasurementsComponent,
+    UmListComponent,
   ],
   imports: [
     BrowserModule,

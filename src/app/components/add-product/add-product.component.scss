@@ -27,6 +27,9 @@ form{
             &.ng-invalid.ng-touched{
                 border: 2px solid red;
             }
+            &.ng-untouched.ng-pristine{
+                color: rgb(115, 115, 115);
+            }
        
         }
         

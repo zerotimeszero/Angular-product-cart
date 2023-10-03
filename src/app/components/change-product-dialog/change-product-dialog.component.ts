@@ -42,9 +42,11 @@ export class ChangeProductDialogComponent implements OnInit {
       name: new FormControl(this.product.name),
       quantity: new FormControl(this.product.quantity),
       unit_cost: new FormControl(this.product.unit_cost),
-      unit_measurement: new FormControl(this.product.unit_measurement)
+      unit_measurement: new FormControl(this.product.unit_measurement.value)
     })
+    
   }
+  
   onFormSubmit(){
     this.productService.updateProduct(this.product.id, this.changeForm.value).
     subscribe(() =>{

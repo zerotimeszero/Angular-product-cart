@@ -17,7 +17,7 @@
     &__icons{
         cursor: pointer;
         display: flex;
-        gap: 10px;
+        gap: 25px;
         justify-self: end;
         .icon{
             transition: color .2s ease; 
@@ -48,9 +48,7 @@
         padding: 10px;
         position: relative;
         font-size: 18px;
-        .icon{
-            font-size: 18px;
-        }
+        
         p{
             &:first-of-type{
                 &::before{
@@ -81,6 +79,7 @@
         
     }
     .icon{
+        font-size: 18px;
         position: absolute;
     }
     .trash{

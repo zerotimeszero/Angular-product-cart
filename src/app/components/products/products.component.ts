@@ -14,11 +14,14 @@ import { UnitMeasureService } from 'src/app/services/unit-measure-service.servic
   animations: [
     trigger('addProductFadeIn',[
       transition(':enter', [
-        style({ opacity: 0 }),
-        animate(300, style({ opacity: 1 })),
+        style({
+           maxHeight: 0,
+           opacity: 0
+          }),
+        animate(75, style({maxHeight: '200px',opacity: 1 })),
       ]),
       transition(':leave', [
-        animate(300, style({ opacity: 0 }))
+        animate(75, style({ maxHeight: 0,opacity: 0 }))
       ])
       
     ])

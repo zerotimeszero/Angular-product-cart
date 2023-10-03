@@ -2,7 +2,8 @@
 @import "nullstyle.scss";
 $red-main: rgb(194,24,91);
 .container{
-    padding: 10px 30px;
+    position: relative;
+    
 }
 
 .validation{
@@ -13,7 +14,20 @@ $red-main: rgb(194,24,91);
     font-weight: 700;
 }
 
+.empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+}
+html{
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}
 body{
+    padding: 10px 30px;
     color: rgb(173,173,173);
     background-color: rgb(66,66,66);
     
