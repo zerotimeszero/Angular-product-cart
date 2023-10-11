@@ -28,7 +28,7 @@ export class AddProductComponent implements OnInit {
       Validators.required,
       Validators.min(0)
     ]),
-    unit_measurement: new FormControl(undefined,[
+    measure: new FormControl(undefined,[
       Validators.required
     ])
   })
@@ -38,7 +38,7 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
     if (this.unitMeasurements.length > 0){
       this.addForm.patchValue({
-        unit_measurement: this.unitMeasurements[0]
+        measure: this.unitMeasurements[0]
       })
     }
    }
@@ -49,12 +49,12 @@ export class AddProductComponent implements OnInit {
           alert('Пожалуйста, проверьте введенные данные')
           return;
         }
-    if (typeof this.addForm.value.unit_measurement != 'string'){
+    if (typeof this.addForm.value.measure != 'string'){
       const newProduct = {
         name: this.addForm.value.name,
         quantity: this.addForm.value.quantity,
         unit_cost: this.addForm.value.unit_cost,
-        unit_measurement: this.addForm.value.unit_measurement
+        measure: this.addForm.value.measure
         
       }
       this.onAddProduct.emit(newProduct);
@@ -67,5 +67,5 @@ export class AddProductComponent implements OnInit {
   get name() { return this.addForm.get('name'); }
   get quantity() {return this.addForm.get('quantity');}
   get unit_cost() {return this.addForm.get('unit_cost');}
-  get unit_measurement(){return this.addForm.get('unit_measurement')}
+  get measure(){return this.addForm.get('measure')}
 }

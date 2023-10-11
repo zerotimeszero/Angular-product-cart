@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Product} from '../../Product'
 import { ProductService } from 'src/app/services/product.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { UnitMeasurement } from 'src/app/UnitMeasurment';
+import { Measure } from 'src/app/UnitMeasurment';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { UnitMeasureService } from 'src/app/services/unit-measure-service.service';
 
@@ -31,7 +31,7 @@ import { UnitMeasureService } from 'src/app/services/unit-measure-service.servic
 
 export class ProductsComponent implements OnInit{
   products: Product[] = [];
-  unitMeasurements: UnitMeasurement[] = [];
+  unitMeasurements: Measure[] = [];
   isAddMenuOpened = false;
   
   
@@ -54,7 +54,10 @@ export class ProductsComponent implements OnInit{
        t.id !== product.id));
   }
   addProduct(product: Product){
-    this.productService.addProduct(product).subscribe((product) => this.products.push(product));
+    this.productService.addProduct(product).subscribe((id) =>{
+       product.id = id;
+       this.products.push(product);
+      });
   }
 
   openAddMenu(){

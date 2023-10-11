@@ -1,5 +1,4 @@
-export interface UnitMeasurement{
+export interface Measure{
     id?: number;
     value: string;
-    // name: string
 }

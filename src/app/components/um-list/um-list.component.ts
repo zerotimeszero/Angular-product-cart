@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UnitMeasurement } from 'src/app/UnitMeasurment';
+import { Measure } from 'src/app/UnitMeasurment';
 import { UnitMeasureService } from 'src/app/services/unit-measure-service.service';
 import { faTrash,faCheck } from '@fortawesome/free-solid-svg-icons';
 import { animate, state, style, transition, trigger } from '@angular/animations';
@@ -44,7 +44,7 @@ export class UmListComponent implements OnInit {
   faCheck = faCheck;
   faTrash = faTrash;
 
-  unitMeasurements: UnitMeasurement[] = [];
+  unitMeasurements: Measure[] = [];
 
   constructor(private umservice: UnitMeasureService){
 
@@ -53,13 +53,17 @@ export class UmListComponent implements OnInit {
     this.umservice.getUnitMeasurements().subscribe((unitMeasurements) => this.unitMeasurements = unitMeasurements)
   }
   onAddSubmit() : void{
-    const newUnitMeasurement = {
+    const newUnitMeasurement: Measure = {
       value: this.addForm.value.name
     }
-    this.umservice.addUnitMeasurement(newUnitMeasurement).subscribe((um) => this.unitMeasurements.push(um))
+    
+    this.umservice.addUnitMeasurement(newUnitMeasurement).subscribe((id) => {
+       newUnitMeasurement.id = parseInt(id.toString());
+       this.unitMeasurements.push(newUnitMeasurement);
+    })
     this.addForm.reset();
   }
-  deleteUnitMeasurement(um: UnitMeasurement){
+  deleteUnitMeasurement(um: Measure){
     this.umservice
     .deleteUnitMeasurement(um)
     .subscribe(
@@ -77,7 +81,7 @@ export class UmListComponent implements OnInit {
     this.changeForm.reset();
   }
 
-  onChangeSubmit(um: UnitMeasurement){
+  onChangeSubmit(um: Measure){
     this.umservice.updateUnitMeasurements(um.id,this.changeForm.value).subscribe(() =>{
       um.value = this.changeForm.value.value;
     })

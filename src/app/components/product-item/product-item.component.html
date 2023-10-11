@@ -3,7 +3,7 @@
     <p class = "product__name">{{ product.name }}</p>
     <p class = "product__quantity">{{ product.quantity}}</p>
     <p class = "product__price">{{ product.unit_cost }}₽</p>
-    <p class = "product__unit-measurement">{{ product.unit_measurement.value }}</p>
+    <p class = "product__unit-measurement">{{ product.measure.value }}</p>
     <div class="product__icons">
         <fa-icon [icon] = "faInfo" (click)="openShowProductDialog()" class = "icon info"></fa-icon>
         <fa-icon [icon] = "faEdit" class = "icon edit" (click) = openChangeProductDialog()></fa-icon>

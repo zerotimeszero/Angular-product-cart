@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Product } from 'src/app/Product';
 import { ProductService } from 'src/app/services/product.service';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
-import { UnitMeasurement } from 'src/app/UnitMeasurment';
+import { Measure } from 'src/app/UnitMeasurment';
 @Component({
   selector: 'app-change-product-dialog',
   templateUrl: './change-product-dialog.component.html',
@@ -11,7 +11,7 @@ import { UnitMeasurement } from 'src/app/UnitMeasurment';
 })
 export class ChangeProductDialogComponent implements OnInit {
   product: Product = this.data.product
-  unitMeasurements: UnitMeasurement[] = this.data.unitMeasurements
+  unitMeasurements: Measure[] = this.data.unitMeasurements
   changeForm = new FormGroup({
     name: new FormControl('',[
       Validators.required
@@ -24,7 +24,7 @@ export class ChangeProductDialogComponent implements OnInit {
       Validators.required,
       Validators.min(0)
     ]),
-    unit_measurement: new FormControl(undefined,[
+    measure: new FormControl(undefined,[
       Validators.required
     ])
   })
@@ -42,10 +42,14 @@ export class ChangeProductDialogComponent implements OnInit {
       name: new FormControl(this.product.name),
       quantity: new FormControl(this.product.quantity),
       unit_cost: new FormControl(this.product.unit_cost),
-      unit_measurement: new FormControl(this.product.unit_measurement.value)
+      measure: new FormControl(this.product.measure.value)
     })
-    
+    if (this.unitMeasurements.length > 0){
+      this.changeForm.patchValue({
+        measure: this.unitMeasurements.filter((item) => item.id == this.product.measure.id)[0]
+      })
   }
+}
   
   onFormSubmit(){
     this.productService.updateProduct(this.product.id, this.changeForm.value).
@@ -53,12 +57,12 @@ export class ChangeProductDialogComponent implements OnInit {
       this.product.name = this.changeForm.value.name;
       this.product.quantity = this.changeForm.value.quantity;
       this.product.unit_cost = this.changeForm.value.unit_cost;
-      this.product.unit_measurement = this.changeForm.value.unit_measurement;
+      this.product.measure = this.changeForm.value.measure;
     })
   }
   get name() { return this.changeForm.get('name'); }
   get quantity() {return this.changeForm.get('quantity');}
   get unit_cost() {return this.changeForm.get('unit_cost');}
-  get unit_measurement(){return this.changeForm.get('unit_measurement')}
+  get measure(){return this.changeForm.get('measure')}
   
 }

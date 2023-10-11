@@ -18,8 +18,8 @@
         <div *ngIf = "unit_cost.touched && unit_cost.errors?.['min']" class = "validation">Цена не может быть отрицательной!</div>
     </div>
     <div class="form-control">
-        <label for="unit_measurment">Единица измерения</label>
-        <select  formControlName = "unit_measurement"  name="unit_measurment" id="unit_measurment">
+        <label for="measure">Единица измерения</label>
+        <select  formControlName = "measure"  name="measure" id="measure">
             <option *ngFor="let um of unitMeasurements" [ngValue] = "um" value="">{{ um.value }}</option>
         </select>
         <!-- <div *ngIf="unit_measurement.touched && unit_measurement.errors?.['required']" class = "validation">Это поле должно быть заполнено!</div> -->

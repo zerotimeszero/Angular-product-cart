@@ -1,9 +1,9 @@
-import { UnitMeasurement } from "./UnitMeasurment";
+import { Measure } from "./UnitMeasurment";
 
 export interface Product{
     id?: number;
     name: string;
     quantity: number;
     unit_cost: number;
-    unit_measurement?: UnitMeasurement; // TODO - delete the "?"
+    measure?: Measure; // TODO - delete the "?"
 }

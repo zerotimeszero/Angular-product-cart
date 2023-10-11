@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UnitMeasurement } from '../UnitMeasurment';
+import { Measure } from '../UnitMeasurment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -17,22 +17,22 @@ export class UnitMeasureService {
   // private apiUrl = "http://localhost:8080/measure";
   private apiUrl = "http://localhost:5000/measure";
   constructor(private http: HttpClient) { }
-  getUnitMeasurements(): Observable<UnitMeasurement[]> {
-    return this.http.get<UnitMeasurement[]>(this.apiUrl)
+  getUnitMeasurements(): Observable<Measure[]> {
+    return this.http.get<Measure[]>(this.apiUrl)
   }
-  deleteUnitMeasurement(unitMeasurement: UnitMeasurement): Observable<UnitMeasurement>{
+  deleteUnitMeasurement(unitMeasurement: Measure): Observable<Measure>{
     const url = `${this.apiUrl}/${unitMeasurement.id}`;
-    return this.http.delete<UnitMeasurement>(url);
+    return this.http.delete<Measure>(url);
   }
-  addUnitMeasurement(unitMeasurement: UnitMeasurement): Observable<UnitMeasurement>{
-    return this.http.post<UnitMeasurement>(this.apiUrl,unitMeasurement,httpOptions)
+  addUnitMeasurement(unitMeasurement: Measure): Observable<any>{
+    return this.http.post<Measure>(this.apiUrl,unitMeasurement,httpOptions)
   }
-  getUnitMeasurement(id: number): Observable<UnitMeasurement>{
+  getUnitMeasurement(id: number): Observable<Measure>{
     const url = `${this.apiUrl}/${id}`;
-    return this.http.get<UnitMeasurement>(url);
+    return this.http.get<Measure>(url);
   }
-  updateUnitMeasurements(id: number,data: any): Observable<UnitMeasurement>{
+  updateUnitMeasurements(id: number,data: any): Observable<Measure>{
     const url = `${this.apiUrl}/${id}`;
-    return this.http.put<UnitMeasurement>(url,data);
+    return this.http.put<Measure>(url,data);
   }
 }
